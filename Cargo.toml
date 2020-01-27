@@ -1,0 +1,15 @@
+[package]
+name = "lc-server-benchmark-client"
+version = "0.1.0"
+authors = ["Dylan Van Assche <dylan.vanassche@ugent.be>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sse-client = "*"
+reqwest = { version = "*", features = ["blocking", "json"] }
+hyper = "*"
+clap = "*"
+follow-redirects = "*"
+isahc = "*"
