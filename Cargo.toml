@@ -8,8 +8,5 @@ edition = "2018"
 
 [dependencies]
 sse-client = "*"
-reqwest = { version = "*", features = ["blocking", "json"] }
-hyper = "*"
 clap = "*"
-follow-redirects = "*"
 isahc = "*"
