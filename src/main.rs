@@ -4,7 +4,6 @@ extern crate isahc;
 
 use std::time::Duration;
 use std::thread;
-use isahc::prelude::*;
 use sse_client::EventSource;
 use clap::{Arg, App};
 
@@ -53,7 +52,7 @@ fn main() {
 fn handle_pushing() {
     let event_source = EventSource::new(REAL_TIME_PUSHING_URL).unwrap();
 
-    for event in event_source.receiver().iter() {
+    for _event in event_source.receiver().iter() {
         println!("Received pushing answer");
         //println!("{}", event.data)
     }
@@ -62,7 +61,7 @@ fn handle_pushing() {
 fn handle_polling(interval: u64) {
     let client = isahc::HttpClient::builder().redirect_policy(isahc::config::RedirectPolicy::Follow).build().unwrap();
     loop {
-        let mut response = client.get(REAL_TIME_POLLING_URL).unwrap();
+        let _response = client.get(REAL_TIME_POLLING_URL).unwrap();
         println!("Received polling answer");
         //println!("{}", response.text().unwrap());
         thread::sleep(Duration::from_millis(interval))
